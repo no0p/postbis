@@ -67,7 +67,7 @@ PB_CompressedSequence* reverse(PB_CompressedSequence* sequence, PB_CodeSet** fix
 		codeset = palloc0(sizeof(PB_CodeSet) + code_size);
 		codeset->n_symbols = sequence->n_symbols;
 		codeset->n_swapped_symbols = sequence->n_swapped_symbols;
-		codeset->is_fixed = FALSE;
+		codeset->is_fixed = false;
 		codeset->has_equal_length = sequence->has_equal_length;
 		codeset->uses_rle = sequence->uses_rle;
 
@@ -132,7 +132,7 @@ bool sequence_equal(Varlena* raw_seq1, Varlena* raw_seq2, PB_CodeSet** fixed_cod
 	if (len != input_header->sequence_length)
 	{
 		PB_TRACE(errmsg("<-sequence_equal(): exits due to different length"));
-		return FALSE;
+		return false;
 	}
 
 	seq1 = (PB_CompressedSequence*) PG_DETOAST_DATUM(raw_seq1);
@@ -147,7 +147,7 @@ bool sequence_equal(Varlena* raw_seq1, Varlena* raw_seq2, PB_CodeSet** fixed_cod
 		if (c != *output_pointer)
 		{
 			PB_TRACE(errmsg("<-sequence_equal(): exits due to different char at position %ld", output_pointer - decompressed_sequence));
-			return FALSE;
+			return false;
 		}
 		output_pointer++;
 	} PB_END_DECODE
@@ -156,7 +156,7 @@ bool sequence_equal(Varlena* raw_seq1, Varlena* raw_seq2, PB_CodeSet** fixed_cod
 
 	PB_TRACE(errmsg("<-sequence_equal()"));
 
-	return TRUE;
+	return true;
 }
 
 /**

@@ -281,7 +281,7 @@ static PB_CodeSet* get_huffman_code_dfs(const PB_HuffmanTree* tree,
 	} while (top >= 0);
 
 	result->max_codeword_length = max_tree_depth;
-	result->has_equal_length = equal_word_length == FALSE ? FALSE : TRUE;
+	result->has_equal_length = equal_word_length == false ? false : true;
 
 	PB_DEBUG1(errmsg("get_huffman_code_dfs(): maxworldlen %u maxlen %lu", result->max_codeword_length, PB_PREFIX_CODE_BIT_SIZE));
 
@@ -326,7 +326,7 @@ PB_CodeSet* get_equal_lengths_code(const PB_SequenceInfo* info)
 
 	result->n_symbols = info->n_symbols;
 	result->max_codeword_length = (int) ceil(log2((double)info->n_symbols));
-	result->has_equal_length = TRUE;
+	result->has_equal_length = true;
 	result->ascii_bitmap_high = info->ascii_bitmap_high;
 	result->ascii_bitmap_low = info->ascii_bitmap_low;
 	result->ignore_case = info->ignore_case;
@@ -410,11 +410,11 @@ PB_CodeSet* get_huffman_code_rle(const PB_SequenceInfo* info) {
 
 		if (result)
 		{
-			result->uses_rle = TRUE;
+			result->uses_rle = true;
 			result->ascii_bitmap_high = info->ascii_bitmap_high;
 			result->ascii_bitmap_low = info->ascii_bitmap_low;
 			result->ignore_case = info->ignore_case;
-			result->has_equal_length = FALSE;
+			result->has_equal_length = false;
 		}
 	}
 
@@ -518,7 +518,7 @@ PB_CodeSet* truncate_huffman_code(const PB_CodeSet* codeset,
 			result->ignore_case = codeset->ignore_case;
 			result->swap_savings = bits_saved;
 			result->uses_rle = codeset->uses_rle;
-			result->has_equal_length = FALSE;
+			result->has_equal_length = false;
 
 			/*
 			 * Create master code.

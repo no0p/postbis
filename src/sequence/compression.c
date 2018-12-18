@@ -2718,7 +2718,7 @@ uint32 get_compressed_size(const PB_SequenceInfo* info,
 	else
 		frequencies = info->frequencies;
 
-	if (codeset->n_swapped_symbols > 0 && codeset->is_fixed == FALSE)
+	if (codeset->n_swapped_symbols > 0 && codeset->is_fixed == false)
 	{
 		/*
 		 * If code set is swapped
@@ -2802,7 +2802,7 @@ PB_CompressedSequence* encode(uint8* input,
 	result->sequence_length = info->sequence_length;
 	if (codeset->is_fixed)
 	{
-		result->is_fixed = TRUE;
+		result->is_fixed = true;
 		result->n_symbols = 0;
 		result->n_swapped_symbols = codeset->fixed_id;
 		PB_DEBUG1(errmsg("encode(): uses fix code with id %d", codeset->fixed_id));
@@ -2811,7 +2811,7 @@ PB_CompressedSequence* encode(uint8* input,
 	{
 		PB_Codeword* code = PB_COMPRESSED_SEQUENCE_SYMBOL_POINTER(result);
 
-		result->is_fixed = FALSE;
+		result->is_fixed = false;
 		result->n_symbols = codeset->n_symbols;
 		result->n_swapped_symbols = codeset->n_swapped_symbols;
 		memcpy(code,
@@ -2824,9 +2824,9 @@ PB_CompressedSequence* encode(uint8* input,
 	result->uses_rle = codeset->uses_rle;
 
 	if (codeset->has_equal_length || info->sequence_length < PB_INDEX_PART_SIZE)
-		result->has_index = FALSE;
+		result->has_index = false;
 	else
-		result->has_index = TRUE;
+		result->has_index = true;
 
 	/*
 	 * Choose the encoding function
@@ -2922,7 +2922,7 @@ void decode(Varlena* input,
 		codeset = palloc0(sizeof(PB_CodeSet) + code_size);
 		codeset->n_symbols = input_header->n_symbols;
 		codeset->n_swapped_symbols = input_header->n_swapped_symbols;
-		codeset->is_fixed = FALSE;
+		codeset->is_fixed = false;
 		codeset->has_equal_length = input_header->has_equal_length;
 		codeset->uses_rle = input_header->uses_rle;
 
@@ -3004,7 +3004,7 @@ void decode(Varlena* input,
 	if (start_entry)
 		pfree(start_entry);
 
-	if (codeset->is_fixed == FALSE)
+	if (codeset->is_fixed == false)
 		pfree(codeset);
 
 	PB_TRACE(errmsg("<-decode()"));

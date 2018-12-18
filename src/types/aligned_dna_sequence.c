@@ -38,10 +38,10 @@ static PB_CodeSet aligned_dna_flc = {
 		.max_codeword_length = (uint8) 4,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) TRUE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) true,
 		.fixed_id = (bool) 0,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -54,10 +54,10 @@ static PB_CodeSet aligned_dna_flc_cs = {
 		.max_codeword_length = (uint8) 5,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) FALSE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) false,
 		.fixed_id = (bool) 1,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -71,10 +71,10 @@ static PB_CodeSet aligned_dna_iupac = {
 		.max_codeword_length = (uint8) 6,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) TRUE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) true,
 		.fixed_id = (bool) 2,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -91,10 +91,10 @@ static PB_CodeSet aligned_dna_iupac_cs = {
 		.max_codeword_length = (uint8) 7,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) FALSE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) false,
 		.fixed_id = (bool) 3,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -115,10 +115,10 @@ static PB_CodeSet aligned_dna_flc_complement = {
 		.max_codeword_length = (uint8) 4,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) TRUE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) true,
 		.fixed_id = (bool) 4,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -131,10 +131,10 @@ static PB_CodeSet aligned_dna_flc_cs_complement = {
 		.max_codeword_length = (uint8) 5,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) FALSE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) false,
 		.fixed_id = (bool) 5,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -148,10 +148,10 @@ static PB_CodeSet aligned_dna_iupac_complement = {
 		.max_codeword_length = (uint8) 6,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) TRUE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) true,
 		.fixed_id = (bool) 6,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -168,10 +168,10 @@ static PB_CodeSet aligned_dna_iupac_cs_complement = {
 		.max_codeword_length = (uint8) 7,
 		.n_swapped_symbols = (uint8) 0,
 		.max_swapped_codeword_length = (uint8) 0,
-		.has_equal_length = (bool) FALSE,
-		.is_fixed = (bool) TRUE,
-		.uses_rle = (bool) FALSE,
-		.ignore_case = (bool) FALSE,
+		.has_equal_length = (bool) false,
+		.is_fixed = (bool) true,
+		.uses_rle = (bool) false,
+		.ignore_case = (bool) false,
 		.fixed_id = (bool) 7,
 		.swap_savings = (uint64) 0,
 		.ascii_bitmap_low = (uint64) 105553116266496,
@@ -978,12 +978,12 @@ Datum compare_aligned_dna_lt(PG_FUNCTION_ARGS)
 {
 	Varlena* seq1 = (Varlena*) PG_GETARG_RAW_VARLENA_P(0);
 	Varlena* seq2 = (Varlena*) PG_GETARG_RAW_VARLENA_P(1);
-	bool result = FALSE;
+	bool result = false;
 
 	PB_TRACE(errmsg("->compare_aligned_dna_lt()"));
 
 	if (sequence_compare(seq1, seq2, fixed_aligned_dna_codes) < 0)
-		result = TRUE;
+		result = true;
 
 	PB_TRACE(errmsg("<-compare_aligned_dna_lt() exists with %d", result));
 
@@ -1002,12 +1002,12 @@ Datum compare_aligned_dna_le(PG_FUNCTION_ARGS)
 {
 	Varlena* seq1 = (Varlena*) PG_GETARG_RAW_VARLENA_P(0);
 	Varlena* seq2 = (Varlena*) PG_GETARG_RAW_VARLENA_P(1);
-	bool result = FALSE;
+	bool result = false;
 
 	PB_TRACE(errmsg("->compare_aligned_dna_le()"));
 
 	if (sequence_compare(seq1, seq2, fixed_aligned_dna_codes) <= 0)
-		result = TRUE;
+		result = true;
 
 	PB_TRACE(errmsg("<-compare_aligned_dna_le() exists with %d", result));
 
@@ -1026,12 +1026,12 @@ Datum compare_aligned_dna_gt(PG_FUNCTION_ARGS)
 {
 	Varlena* seq1 = (Varlena*) PG_GETARG_RAW_VARLENA_P(0);
 	Varlena* seq2 = (Varlena*) PG_GETARG_RAW_VARLENA_P(1);
-	bool result = FALSE;
+	bool result = false;
 
 	PB_TRACE(errmsg("->compare_aligned_dna_gt()"));
 
 	if (sequence_compare(seq1, seq2, fixed_aligned_dna_codes) > 0)
-		result = TRUE;
+		result = true;
 
 	PB_TRACE(errmsg("<-compare_aligned_dna_gt() exists with %d", result));
 
@@ -1050,12 +1050,12 @@ Datum compare_aligned_dna_ge(PG_FUNCTION_ARGS)
 {
 	Varlena* seq1 = (Varlena*) PG_GETARG_RAW_VARLENA_P(0);
 	Varlena* seq2 = (Varlena*) PG_GETARG_RAW_VARLENA_P(1);
-	bool result = FALSE;
+	bool result = false;
 
 	PB_TRACE(errmsg("->compare_aligned_dna_ge()"));
 
 	if (sequence_compare(seq1, seq2, fixed_aligned_dna_codes) >= 0)
-		result = TRUE;
+		result = true;
 
 	PB_TRACE(errmsg("<-compare_aligned_dna_ge() exists with %d", result));
 

@@ -239,7 +239,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_rle_case_sensitive(const uint8
 
 	result = (PB_SequenceInfo*) palloc0(sizeof(PB_SequenceInfo));
 	result->rle_info = (PB_RleInfo*) palloc0(sizeof(PB_RleInfo));
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 
 	frequencies = (uint32*) &(result->frequencies);
 	rle_frequencies = (uint32*) &(result->rle_info->rle_frequencies);
@@ -339,7 +339,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_rle_case_sensitive(const uint8
 	check_ascii(result);
 
 	result->sequence_length = (uint32) temp_len;
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 	collect_alphabet((uint32*) &(result->rle_info->rle_frequencies), &(result->rle_info->n_symbols), &(result->rle_info->symbols), NULL, NULL);
 
@@ -361,7 +361,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_rle_case_insensitive(const uin
 
 	result = (PB_SequenceInfo*) palloc0(sizeof(PB_SequenceInfo));
 	result->rle_info = (PB_RleInfo*) palloc0(sizeof(PB_RleInfo));
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 
 	frequencies = (uint32*) &(result->frequencies);
 	rle_frequencies = (uint32*) &(result->rle_info->rle_frequencies);
@@ -458,7 +458,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_rle_case_insensitive(const uin
 	check_ascii(result);
 
 	result->sequence_length = (uint32) temp_len;
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 	collect_alphabet((uint32*) &(result->rle_info->rle_frequencies), &(result->rle_info->n_symbols), &(result->rle_info->symbols), NULL, NULL);
 
@@ -492,7 +492,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_case_sensitive(const uint8* in
 	check_ascii(result);
 
 	result->sequence_length = (uint32) temp_len;
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 	collect_alphabet((uint32*) &(result->frequencies),&(result->n_symbols),&(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 
 	return result;
@@ -535,7 +535,7 @@ static PB_SequenceInfo* get_sequence_info_cstring_case_insensitive(const uint8* 
 	check_ascii(result);
 
 	result->sequence_length = (uint32) temp_len;
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 	collect_alphabet((uint32*) &(result->frequencies),&(result->n_symbols),&(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 
 	return result;
@@ -556,7 +556,7 @@ static PB_SequenceInfo* get_sequence_info_text_rle_case_sensitive(const text* in
 
 	result = (PB_SequenceInfo*) palloc0(sizeof(PB_SequenceInfo));
 	result->rle_info = (PB_RleInfo*) palloc0(sizeof(PB_RleInfo));
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 
 	frequencies = (uint32*) &(result->frequencies);
 	rle_frequencies = (uint32*) &(result->rle_info->rle_frequencies);
@@ -646,7 +646,7 @@ static PB_SequenceInfo* get_sequence_info_text_rle_case_sensitive(const text* in
 	check_ascii(result);
 
 	result->sequence_length = VARSIZE_ANY_EXHDR(input);
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 	collect_alphabet((uint32*) &(result->rle_info->rle_frequencies), &(result->rle_info->n_symbols), &(result->rle_info->symbols), NULL, NULL);
 
@@ -668,7 +668,7 @@ static PB_SequenceInfo* get_sequence_info_text_rle_case_insensitive(const text* 
 
 	result = (PB_SequenceInfo*) palloc0(sizeof(PB_SequenceInfo));
 	result->rle_info = (PB_RleInfo*) palloc0(sizeof(PB_RleInfo));
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 
 	frequencies = (uint32*) &(result->frequencies);
 	rle_frequencies = (uint32*) &(result->rle_info->rle_frequencies);
@@ -758,7 +758,7 @@ static PB_SequenceInfo* get_sequence_info_text_rle_case_insensitive(const text* 
 	check_ascii(result);
 
 	result->sequence_length = VARSIZE_ANY_EXHDR(input);
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 	collect_alphabet((uint32*) &(result->rle_info->rle_frequencies), &(result->rle_info->n_symbols), &(result->rle_info->symbols), NULL, NULL);
 
@@ -784,7 +784,7 @@ static PB_SequenceInfo* get_sequence_info_text_case_sensitive(const text* input)
 	check_ascii(result);
 
 	result->sequence_length = VARSIZE_ANY_EXHDR(input);
-	result->ignore_case = FALSE;
+	result->ignore_case = false;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 
 	return result;
@@ -815,7 +815,7 @@ static PB_SequenceInfo* get_sequence_info_text_case_insensitive(const text* inpu
 	check_ascii(result);
 
 	result->sequence_length = VARSIZE_ANY_EXHDR(input);
-	result->ignore_case = TRUE;
+	result->ignore_case = true;
 	collect_alphabet((uint32*) &(result->frequencies), &(result->n_symbols), &(result->symbols), &(result->ascii_bitmap_low), &(result->ascii_bitmap_high));
 
 	return result;
