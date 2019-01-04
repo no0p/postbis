@@ -243,11 +243,10 @@ typedef struct {
  *	uint32 sequence_length	:	number of characters in the original sequence
  *	uint8 n_symbols			:	total number of symbols in code
  *	uint8 n_swapped_symbols	:	number of swapped symbols
- *	bool has_equal_length	:	TRUE if all codewords have same length
- *	bool has_index			:	TRUE if index is included
- *	bool is_fixed			:	TRUE if fixed code was used
- *	bool uses_rle			:	TRUE if rle was used
- *	bool _align1			:	reserved for data alignment; might be used in future
+ *	bool has_equal_length	:	true if all codewords have same length
+ *	bool has_index			:	true if index is included
+ *	bool is_fixed			:	true if fixed code was used
+ *	bool uses_rle			:	true if rle was used
  *	uint8 _align2			:	data alignment
  *
  * The layout of the variable part in 'data' member of this struct is:
@@ -255,7 +254,7 @@ typedef struct {
  * ----------------------------------------------------------------------------
  * 	PB_Codeword symbols[];				|	a = sizeof(PB_Codeword) * (n_symbols - n_swapped_symbols)
  *	PB_Codeword swapped_symbols[];		|	b = sizeof(PB_Codeword) * (n_swapped_symbols)
- *	PB_IndexEntry index[];				|	c = has_index == TRUE ? sizeof(PB_IndexEntry) * (sequence_length / PB_INDEX_PART_SIZE) : 0
+ *	PB_IndexEntry index[];				|	c = has_index == true ? sizeof(PB_IndexEntry) * (sequence_length / PB_INDEX_PART_SIZE) : 0
  *	PB_CompressionBuffer stream[];		|	d = VARSIZE(_vl_len) - roundupto8(12 + a + b + c)
  *
  * Pointers to the variable members can be obtained by the following functions:
@@ -276,7 +275,6 @@ typedef struct {
 	bool has_index : 1;
 	bool is_fixed : 1;
 	bool uses_rle : 1;
-	bool _align1 : 4;
 	uint8 _align2;
 	uint8 data[];
 } PB_CompressedSequence;
@@ -322,7 +320,7 @@ typedef struct {
  * entry. Returns NULL if there is no index.
  */
 #define PB_COMPRESSED_SEQUENCE_INDEX_POINTER(seq) \
-	(((((PB_CompressedSequence*)seq)->has_index) == FALSE) ? \
+	(((((PB_CompressedSequence*)seq)->has_index) == false) ? \
 	NULL : \
 	((PB_IndexEntry*)(((PB_Codeword*)(((PB_CompressedSequence*)seq)->data)) \
 	+ ((PB_CompressedSequence*)seq)->n_symbols)))

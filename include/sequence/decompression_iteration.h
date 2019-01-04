@@ -172,7 +172,7 @@ static PB_DecodingMap* get_decoding_map(const PB_CodeSet* codeset, int mode)
 		__pb_decode_codeset = palloc0(sizeof(PB_CodeSet) + __pb_decode_code_size);\
 		__pb_decode_codeset->n_symbols = __pb_decode_input_header->n_symbols;\
 		__pb_decode_codeset->n_swapped_symbols = __pb_decode_input_header->n_swapped_symbols;\
-		__pb_decode_codeset->is_fixed = FALSE;\
+		__pb_decode_codeset->is_fixed = false;\
 		__pb_decode_codeset->has_equal_length = __pb_decode_input_header->has_equal_length;\
 		__pb_decode_codeset->uses_rle = __pb_decode_input_header->uses_rle;\
 \
@@ -293,7 +293,7 @@ static PB_DecodingMap* get_decoding_map(const PB_CodeSet* codeset, int mode)
 			__pb_decode_swap_counter = __pb_decode_input_header->sequence_length + 1;\
 	}\
 \
-	if (__pb_decode_input_header->is_fixed == FALSE)\
+	if (__pb_decode_input_header->is_fixed == false)\
 		pfree(__pb_decode_codeset);\
 \
 	if (__pb_decode_start_entry != NULL)\

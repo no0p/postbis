@@ -66,7 +66,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, compressed_sequence::text = raw_sequence AS result
       FROM aa_sequence_test_iupac_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* substr function */
@@ -88,7 +88,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
         FROM aa_sequence_test_iupac_ic
       ) AS c
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* char_length function */
@@ -104,7 +104,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
              (char_length(compressed_sequence)::text || ' vs ' || len) as det
       FROM aa_sequence_test_iupac_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* reverse function */
@@ -117,7 +117,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, reverse(reverse(compressed_sequence))::text = raw_sequence AS result
       FROM aa_sequence_test_iupac_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* get_alphabet function */
@@ -132,7 +132,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
           get_alphabet(raw_sequence)::text = get_alphabet(compressed_sequence)::text AS result
     FROM aa_sequence_test_iupac_ic
   ) AS a
-  WHERE result = FALSE;
+  WHERE result = false;
 
 DROP TABLE aa_sequence_test_iupac_ic;
 
@@ -179,7 +179,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, compressed_sequence::text = raw_sequence AS result
       FROM aa_sequence_test_iupac_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* substr function */
@@ -201,7 +201,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
         FROM aa_sequence_test_iupac_cs
       ) AS c
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* char_length function */
@@ -217,7 +217,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
              (char_length(compressed_sequence)::text || ' vs ' || len) as det
       FROM aa_sequence_test_iupac_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* reverse function */
@@ -230,7 +230,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, reverse(reverse(compressed_sequence))::text = raw_sequence AS result
       FROM aa_sequence_test_iupac_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* get_alphabet function */
@@ -245,7 +245,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
           get_alphabet(raw_sequence)::text = get_alphabet(compressed_sequence)::text AS result
     FROM aa_sequence_test_iupac_cs
   ) AS a
-  WHERE result = FALSE;
+  WHERE result = false;
 
 DROP TABLE aa_sequence_test_iupac_cs;
 
@@ -286,7 +286,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, compressed_sequence::text = raw_sequence AS result
       FROM aa_sequence_test_ascii_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* substr function */
@@ -308,7 +308,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
         FROM aa_sequence_test_ascii_ic
       ) AS c
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* char_length function */
@@ -324,7 +324,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
              (char_length(compressed_sequence)::text || ' vs ' || len) as det
       FROM aa_sequence_test_ascii_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* reverse function */
@@ -337,7 +337,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, reverse(reverse(compressed_sequence))::text = raw_sequence AS result
       FROM aa_sequence_test_ascii_ic
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* get_alphabet function */
@@ -352,7 +352,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
           get_alphabet(raw_sequence)::text = get_alphabet(compressed_sequence)::text AS result
     FROM aa_sequence_test_ascii_ic
   ) AS a
-  WHERE result = FALSE;
+  WHERE result = false;
 
 DROP TABLE aa_sequence_test_ascii_ic;
 
@@ -393,7 +393,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, compressed_sequence::text = raw_sequence AS result
       FROM aa_sequence_test_ascii_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* substr function */
@@ -415,7 +415,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
         FROM aa_sequence_test_ascii_cs
       ) AS c
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* char_length function */
@@ -431,7 +431,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
              (char_length(compressed_sequence)::text || ' vs ' || len) as det
       FROM aa_sequence_test_ascii_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* reverse function */
@@ -444,7 +444,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence)
       SELECT raw_sequence AS seq, reverse(reverse(compressed_sequence))::text = raw_sequence AS result
       FROM aa_sequence_test_ascii_cs
     ) AS b
-    WHERE result = FALSE
+    WHERE result = false
   ) AS a;
 
 /* get_alphabet function */
@@ -459,7 +459,7 @@ INSERT INTO aa_sequence_errors (test_set, test_type, raw_sequence, details)
           get_alphabet(raw_sequence)::text = get_alphabet(compressed_sequence)::text AS result
     FROM aa_sequence_test_ascii_cs
   ) AS a
-  WHERE result = FALSE;
+  WHERE result = false;
 
 DROP TABLE aa_sequence_test_ascii_cs;
 
